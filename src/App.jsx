@@ -15,10 +15,10 @@ function App() {
     <div className="container-fluid">
       <header>
         <div className="row">
-          <div className="col-12 header">
-            <Cabecera usuario = {$nombre}
-                      token = {$token}
-                      menu = {$menu}
+          <div className="col-12 header text-center">
+            <Cabecera usuario = {nombre}
+                      token = {token}
+                      menu = {menu}
             ></Cabecera>
           </div>
         </div>
