@@ -1,7 +1,7 @@
-function Cabecera() {
+function Cabecera(props) {
   return (
     <header>
-      <p>HEADER</p>
+      <p>HEADER, {props.usuario}, {props.token}, {props.menu}</p>
     </header>
   );
 }

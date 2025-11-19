@@ -1,7 +1,7 @@
-function Principal() {
+function Principal(props) {
   return (
     <main>
-      <p>MAIN</p>
+      <p>MAIN, {props.usuario}, {props.token}, {props.menu}</p>
     </main>
   );
 }

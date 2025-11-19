@@ -8,19 +8,31 @@ import Roles from './componentes/Roles.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
+  $nombre = "Usuario1"
+  $token = "1234567890"
+  $menu = "Inicio, Perfil, Configuración"
 
   return (
     <div className="container-fluid">
       <header>
         <div className="row">
           <div className="col-12 header">
-            <p className="text-center"><Cabecera></Cabecera></p>
+            <Cabecera usuario = {$nombre}
+                      token = {$token}
+                      menu = {$menu}
+            ></Cabecera>
           </div>
         </div>
       </header>
       <div className="row">
-        <div className="col-3 text-center gris main"><Roles></Roles></div>
-        <div className="col-9 text-center verde main"><Principal></Principal></div>
+        <div className="col-3 text-center gris main"><Roles usuario = {$nombre}
+                                                            token = {$token}
+                                                            menu = {$menu}>
+                                                      </Roles></div>
+        <div className="col-9 text-center verde main"><Principal  usuario = {$nombre}
+                                                                  token = {$token}
+                                                                   menu = {$menu}>
+                                                      </Principal></div>
       </div>
     </div>
   )
