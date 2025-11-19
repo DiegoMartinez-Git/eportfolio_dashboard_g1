@@ -7,10 +7,9 @@ import Principal from './componentes/Principal.jsx'
 import Roles from './componentes/Roles.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
-  $nombre = "Usuario1"
-  $token = "1234567890"
-  $menu = "Inicio, Perfil, Configuración"
+  const nombre = "Usuario1"
+  const token = "1234567890"
+  const menu = "Inicio, Perfil, Configuración"
 
   return (
     <div className="container-fluid">
@@ -25,14 +24,15 @@ function App() {
         </div>
       </header>
       <div className="row">
-        <div className="col-3 text-center gris main"><Roles usuario = {$nombre}
-                                                            token = {$token}
-                                                            menu = {$menu}>
+        <div className="col-3 text-center gris main"><Roles usuario = {nombre}
+                                                            token = {token}
+                                                            menu = {menu}>
                                                       </Roles></div>
-        <div className="col-9 text-center verde main"><Principal  usuario = {$nombre}
-                                                                  token = {$token}
-                                                                   menu = {$menu}>
-                                                      </Principal></div>
+        <div className="col-9 text-center verde main"><Principal  usuario = {nombre}
+                                                                  token = {token}
+                                                                   menu = {menu}>
+                                                      </Principal>
+        </div>
       </div>
     </div>
   )
