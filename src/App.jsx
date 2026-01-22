@@ -1,40 +1,39 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Cabecera from './componentes/Cabecera.jsx'
 import Principal from './componentes/Principal.jsx'
 import Roles from './componentes/Roles.jsx'
+import TokenContext from './context/TokenContext.jsx'
+import UserContext from './context/UserContext.jsx'
+
 
 function App() {
+
   const nombre = "Usuario1"
-  const token = "1234567890"
+  const [user, setUser] = useState(nombre)
+
+
+  const token = "token"
   const menu = "Inicio, Perfil, Configuración"
 
   return (
-    <div className="container-fluid">
-      <header>
-        <div className="row">
-          <div className="col-12 header text-center">
-            <Cabecera usuario = {nombre}
-                      token = {token}
-                      menu = {menu}
-            ></Cabecera>
+    <TokenContext.Provider value={token}>
+      <div className="container-fluid">
+        <Cabecera usuario={user}
+          menu={menu}
+        ></Cabecera>
+        <UserContext.Provider value={user}>
+          <div className="row">
+            <Roles 
+              menu={menu}>
+            </Roles>
+            <Principal 
+              menu={menu}>
+            </Principal>
           </div>
-        </div>
-      </header>
-      <div className="row">
-        <div className="col-3 text-center gris main"><Roles usuario = {nombre}
-                                                            token = {token}
-                                                            menu = {menu}>
-                                                      </Roles></div>
-        <div className="col-9 text-center verde main"><Principal  usuario = {nombre}
-                                                                  token = {token}
-                                                                   menu = {menu}>
-                                                      </Principal>
-        </div>
+        </UserContext.Provider>
       </div>
-    </div>
+    </TokenContext.Provider>
   )
 }
 
