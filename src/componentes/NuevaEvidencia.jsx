@@ -22,7 +22,6 @@ const NuevaEvidencia = () => {
         setEvidencia(evidencia)
     }
 
-    console.log(evidencia)
 
     return(
 

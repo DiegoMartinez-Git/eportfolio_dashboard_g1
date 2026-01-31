@@ -9,7 +9,7 @@ import UserContext from './context/UserContext.jsx'
 
 function App() {
 
-  const nombre = "Usuario1"
+  const nombre = "Victor"
   const [user, setUser] = useState(nombre)
 
 

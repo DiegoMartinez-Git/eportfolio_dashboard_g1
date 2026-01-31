@@ -3,7 +3,6 @@ import TokenContext from "../context/TokenContext";
 
 function Cabecera(props) {
   const token = useContext(TokenContext)
-  console.log(token)
   return (
     <header>
       <div className="row">
