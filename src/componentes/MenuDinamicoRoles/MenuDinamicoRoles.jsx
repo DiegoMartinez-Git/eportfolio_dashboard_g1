@@ -4,10 +4,10 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import opcionesAdmin from '../mocks/mock-administrador'
+import opcionesAdmin from '../../mocks/mock-administrador'
 import { Link } from "react-router-dom";
-import useMisModulosImpartidos from '../hooks/useMisModulosImpartidos';
-import useMisModulosMatriculados from '../hooks/useMisModulosMatriculados';
+import useMisModulosImpartidos from '../../hooks/useMisModulosImpartidos';
+import useMisModulosMatriculados from '../../hooks/useMisModulosMatriculados';
 
 
 const MenuDinamicoRoles = (props) => {
@@ -92,7 +92,7 @@ const MenuDinamicoRoles = (props) => {
         </Accordion>)
     }
 
-    
+
 
 
     return (

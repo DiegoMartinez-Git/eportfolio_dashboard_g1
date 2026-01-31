@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import Cabecera from './componentes/Cabecera.jsx'
-import Principal from './componentes/Principal.jsx'
-import Roles from './componentes/Roles.jsx'
+import Cabecera from './componentes/Cabecera/Cabecera.jsx'
+import Principal from './componentes/Principal/Principal.jsx'
+import Roles from './componentes/Roles/Roles.jsx'
 import TokenContext from './context/TokenContext.jsx'
 import UserContext from './context/UserContext.jsx'
-
+import { Route, Routes } from 'react-router-dom'
+import FuncionalidadEstudiante from './pages/funcionalidadEstudiante.jsx'
+import FuncionalidadDocente from './pages/funcionalidadDocente.jsx'
 
 function App() {
 
@@ -24,12 +26,16 @@ function App() {
         ></Cabecera>
         <UserContext.Provider value={user}>
           <div className="row">
-            <Roles 
+            <Roles
               menu={menu}>
             </Roles>
-            <Principal 
-              menu={menu}>
-            </Principal>
+            <div className="col-9 text-center verde main">
+              <Routes>
+                <Route path='/' element={<Principal menu={menu} />}></Route>
+                <Route path='/funcionalidadestudiante/:modulo' element={<FuncionalidadEstudiante />}></Route>
+                <Route path='/funcionalidaddocente/:modulo' element={<FuncionalidadDocente />}></Route>
+              </Routes>
+            </div>
           </div>
         </UserContext.Provider>
       </div>

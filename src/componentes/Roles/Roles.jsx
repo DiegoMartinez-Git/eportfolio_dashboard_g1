@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import TokenContext from "../context/TokenContext";
-import UserContext from "../context/UserContext";
-import useRoles from '../hooks/useRoles'
-import MenuDinamicoRoles from "./MenuDinamicoRoles";
+import TokenContext from "../../context/TokenContext";
+import UserContext from "../../context/UserContext";
+import useRoles from '../../hooks/useRoles'
+import MenuDinamicoRoles from "../MenuDinamicoRoles/MenuDinamicoRoles";
 
 function Roles(props) {
 

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import TokenContext from "../context/TokenContext";
+import TokenContext from "../../context/TokenContext";
 
 function Cabecera(props) {
   const token = useContext(TokenContext)
