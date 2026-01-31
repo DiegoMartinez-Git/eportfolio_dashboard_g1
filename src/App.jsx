@@ -6,8 +6,8 @@ import Roles from './componentes/Roles/Roles.jsx'
 import TokenContext from './context/TokenContext.jsx'
 import UserContext from './context/UserContext.jsx'
 import { Route, Routes } from 'react-router-dom'
-import FuncionalidadEstudiante from './pages/funcionalidadEstudiante.jsx'
-import FuncionalidadDocente from './pages/funcionalidadDocente.jsx'
+import FuncionalidadEstudiante from './pages/FuncionalidadEstudiante.jsx'
+import FuncionalidadDocente from './pages/FuncionalidadDocente.jsx'
 
 function App() {
 
