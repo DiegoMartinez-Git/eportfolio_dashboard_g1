@@ -10,7 +10,7 @@ function Principal(props) {
   const usuario = useContext(UserContext)
 
   return (
-    <p>MAIN, {usuario}, {token}, {props.menu}</p>
+    <p>MAIN, {usuario}, {token}</p>
   );
 }
 

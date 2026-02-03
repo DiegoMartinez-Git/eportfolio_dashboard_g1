@@ -14,7 +14,7 @@ function Roles(props) {
 
     <div className="col-3 text-center gris main">
       <aside>
-        <p>ROLES, {usuario}, {token}, {props.menu}</p>
+        <p>ROLES, {usuario}, {token}</p>
       </aside>
       <MenuDinamicoRoles roles={roles} usuario={usuario}></MenuDinamicoRoles>
     </div>

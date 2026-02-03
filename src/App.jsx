@@ -16,22 +16,17 @@ function App() {
 
 
   const token = "token"
-  const menu = "Inicio, Perfil, Configuración"
 
   return (
     <TokenContext.Provider value={token}>
       <div className="container-fluid">
-        <Cabecera usuario={user}
-          menu={menu}
-        ></Cabecera>
+        <Cabecera usuario={user}></Cabecera>
         <UserContext.Provider value={user}>
           <div className="row">
-            <Roles
-              menu={menu}>
-            </Roles>
+            <Roles/>
             <div className="col-9 text-center verde main">
               <Routes>
-                <Route path='/' element={<Principal menu={menu} />}></Route>
+                <Route path='/' element={<Principal/>}></Route>
                 <Route path='/funcionalidadestudiante/:modulo' element={<FuncionalidadEstudiante />}></Route>
                 <Route path='/funcionalidaddocente/:modulo' element={<FuncionalidadDocente />}></Route>
               </Routes>
