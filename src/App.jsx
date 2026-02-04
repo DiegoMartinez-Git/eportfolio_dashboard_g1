@@ -11,7 +11,7 @@ import FuncionalidadDocente from './pages/FuncionalidadDocente.jsx'
 
 function App() {
 
-  const nombre = "Victor"
+  const nombre = "Alberto"
   const [user, setUser] = useState(nombre)
 
 

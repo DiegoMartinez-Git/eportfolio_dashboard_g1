@@ -21,7 +21,7 @@ const NuevaEvidencia = () => {
     function manejarFormulario(evidencia) {
         setEvidencia(evidencia)
     }
-
+    console.log(evidencia)
 
     return (
 

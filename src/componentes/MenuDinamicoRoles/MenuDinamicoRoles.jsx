@@ -22,78 +22,39 @@ const MenuDinamicoRoles = (props) => {
     function generarAcordeon(rol) {
 
         switch (rol) {
-            case "administrador":
-                return acordeonAdmin()
-            case 'estudiante':
-                return acordeonEstudiante()
+            case 'administrador':
+                return acordeonGeneral(rol, opcionesAdmin.administrador)
             case 'docente':
-                return acordeonDocente()
+                return acordeonGeneral(rol, modulosDocente.lista)
+            case 'estudiante':
+                return acordeonGeneral(rol, modulosEstudiante.lista)
+            default:
+                return null
         }
 
     }
 
-    function acordeonAdmin() {
-        return (<Accordion>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-            >
-                <Typography component="span">adminstrador</Typography>
-            </AccordionSummary>
+    function acordeonGeneral(rol, opciones) {
 
-            {opcionesAdmin.administrador.map((pestaña, index) => {
-                return (
-                    <AccordionDetails key={index}>
-                        <Link key={index + 1} to={pestaña.ruta} >{pestaña.nombre}</Link>
-                    </AccordionDetails>)
-            })}
-
-        </Accordion>)
+        return (
+            <Accordion key={`panel1-${rol}`}>
+                <AccordionSummary key={`panel1-header-${rol}`}
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls={`panel1-content-${rol}`}
+                    id={`panel1-header-${rol}`}
+                >
+                    <Typography component="span">{rol}</Typography>
+                </AccordionSummary>
+                {console.log(opciones)}
+                {opciones.map((pestaña, index) => {
+                    return (
+                        <AccordionDetails key={index}>
+                            <Link key={index + 1} to={pestaña.ruta} >{pestaña.nombre}</Link>
+                        </AccordionDetails>
+                    )
+                })}
+            </Accordion>)
     }
-
-    function acordeonDocente() {
-        return (<Accordion>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-            >
-                <Typography component="span">docente</Typography>
-            </AccordionSummary>
-
-            {modulosDocente.lista.map((modulo, index) => {
-                return (
-                    <AccordionDetails key={index}>
-                        <Link key={modulo.ciclo_formativo_id} to={`/funcionalidaddocente/${modulo.id}`} >{modulo.nombre}</Link>
-                    </AccordionDetails>)
-            })}
-
-        </Accordion>)
-    }
-
-    function acordeonEstudiante() {
-        return (<Accordion>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-            >
-                <Typography component="span">estudiante</Typography>
-            </AccordionSummary>
-
-            {modulosEstudiante.lista.map((modulo, index) => {
-                return (
-                    <AccordionDetails key={index}>
-                        <Link key={modulo.ciclo_formativo_id} to={`/funcionalidadestudiante/${modulo.id}`} >{modulo.nombre}</Link>
-                    </AccordionDetails>)
-            })}
-
-        </Accordion>)
-    }
-
-
-
 
     return (
         <div>
