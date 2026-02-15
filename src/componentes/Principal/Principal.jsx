@@ -3,6 +3,8 @@ import TokenContext from "../../context/TokenContext";
 import UserContext from "../../context/UserContext";
 import NuevaEvidencia from "../NuevaEvidencia/NuevaEvidencia";
 import { Route, Routes } from "react-router-dom";
+import FuncionalidadEstudiante from "../../pages/FuncionalidadEstudiante";
+import FuncionalidadDocente from "../../pages/FuncionalidadDocente";
 
 function Principal(props) {
 
@@ -10,7 +12,13 @@ function Principal(props) {
   const usuario = useContext(UserContext)
 
   return (
-    <p>MAIN, {usuario}, {token}</p>
+    <>
+      <Routes>
+        <Route path="/" element={<h1>MAIN</h1>}></Route>
+        <Route path='/funcionalidadestudiante/:modulo' element={<FuncionalidadEstudiante />}></Route>
+        <Route path='/funcionalidaddocente/:modulo' element={<FuncionalidadDocente />}></Route>
+      </Routes>
+    </>
   );
 }
 

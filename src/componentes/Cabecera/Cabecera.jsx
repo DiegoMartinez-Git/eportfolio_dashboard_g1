@@ -7,7 +7,9 @@ function Cabecera(props) {
     <header>
       <div className="row">
         <div className="col-12 header text-center">
-          <p>HEADER DIEGO MARTÍNEZ, TOKEN: {token}</p>
+          <h1>HEADER </h1>
+          <h2>DIEGO MARTÍNEZ</h2>
+          <p>TOKEN: {token}</p>
         </div>
       </div>
     </header>

@@ -18,11 +18,11 @@ const NuevaEvidenciaForm = (props) => {
     }
 
     const TAREA_INICIAL = {
-        tarea_id: props.tarea.id,
+        tarea_id: "",
         estudiante_id: usuario,
         url: "",
         descripcion: "",
-        estado_validacion: "pendiente"
+        estado_validacion: ""
     }
 
     const { register,
@@ -43,6 +43,7 @@ const NuevaEvidenciaForm = (props) => {
             estudiante_id: usuario,
             estado_validacion: "pendiente"
         }
+        console.log(evidenciaFinal)
         props.manejarFormulario(evidenciaFinal)
         reset()
     })

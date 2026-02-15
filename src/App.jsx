@@ -5,9 +5,6 @@ import Principal from './componentes/Principal/Principal.jsx'
 import Roles from './componentes/Roles/Roles.jsx'
 import TokenContext from './context/TokenContext.jsx'
 import UserContext from './context/UserContext.jsx'
-import { Route, Routes } from 'react-router-dom'
-import FuncionalidadEstudiante from './pages/FuncionalidadEstudiante.jsx'
-import FuncionalidadDocente from './pages/FuncionalidadDocente.jsx'
 
 function App() {
 
@@ -15,7 +12,7 @@ function App() {
   const [user, setUser] = useState(nombre)
 
 
-  const token = "token"
+  const token = "diegoToken"
 
   return (
     <TokenContext.Provider value={token}>
@@ -25,11 +22,7 @@ function App() {
           <div className="row">
             <Roles/>
             <div className="col-9 text-center verde main">
-              <Routes>
-                <Route path='/' element={<Principal/>}></Route>
-                <Route path='/funcionalidadestudiante/:modulo' element={<FuncionalidadEstudiante />}></Route>
-                <Route path='/funcionalidaddocente/:modulo' element={<FuncionalidadDocente />}></Route>
-              </Routes>
+              <Principal/>
             </div>
           </div>
         </UserContext.Provider>
