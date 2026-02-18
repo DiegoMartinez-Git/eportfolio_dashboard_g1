@@ -3,11 +3,13 @@ import Button from '@mui/material/Button';
 import { TextField } from "@mui/material";
 import { useContext, useState } from "react";
 import UserContext from "../../context/UserContext";
+import useEvidencias from "../../hooks/useEvidencias";
 
 
 const NuevaEvidenciaForm = (props) => {
 
     const usuario = useContext(UserContext)
+    const { nuevaEvidencia, lista } = useEvidencias()
 
     const TAREA = {
         TAREA_ID: "tarea_id",
@@ -35,15 +37,14 @@ const NuevaEvidenciaForm = (props) => {
 
 
 
-    const manejarFormulario = handleSubmit((nuevaEvidencia) => {
-        //Preguntar a Victor
+    const manejarFormulario = handleSubmit((data) => {
         const evidenciaFinal = {
-            ...nuevaEvidencia,
+            ...data,
             tarea_id: props.tarea.id,
             estudiante_id: usuario,
             estado_validacion: "pendiente"
         }
-        console.log(evidenciaFinal)
+        nuevaEvidencia(evidenciaFinal)
         props.manejarFormulario(evidenciaFinal)
         reset()
     })
@@ -52,14 +53,14 @@ const NuevaEvidenciaForm = (props) => {
         <>
             <form onSubmit={manejarFormulario}>
                 <TextField id="outlined-basic" label={TAREA.URL} variant="outlined" fullWidth {...register(TAREA.URL, {
-                    required: true,
-                    message: "La URL es obligatoria"
+                    required: { value: true, message: "La URL es obligatoria" }
                 })} />
+                {errors.url && <span className="error">{errors.url.message}</span>}
                 <br /><br />
                 <TextField id="outlined-basic" label={TAREA.DESCRIPCION} variant="outlined" fullWidth multiline rows={4}{...register(TAREA.DESCRIPCION, {
-                    required: true,
-                    message: "La descripción es obligatoria"
+                    required: { value: true, message: "La descripción es obligatoria" }
                 })} />
+                {errors.descripcion && <span className="error">{errors.descripcion.message}</span>}
                 <br /><br />
                 <Button type="submit" variant="contained">Añadir Evidencia</Button>
             </form>

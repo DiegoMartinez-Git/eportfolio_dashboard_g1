@@ -1,12 +1,28 @@
-import { useState } from 'react'
-import matriculados from '../mocks/mock-matriculados'
+import { useState, useEffect } from 'react'
+import { getModulosMatriculados } from '../services/modulosService'
 
 const useMisModulosMatriculados = (usuario) => {
 
     const [buscando, setBuscando] = useState(false)
-    const [lista, setLista] = useState(matriculados[usuario] ? matriculados[usuario].lista : [])
-    
+    const [lista, setLista] = useState([])
 
-    return {lista, buscando}
+    function misModulosMatriculados(usuario) {
+        setBuscando(true)
+        getModulosMatriculados().then((data) => {
+            if (data[usuario]) {
+                setLista(data[usuario].lista)
+            } else {
+                setLista([])
+            }
+            setBuscando(false)
+        })
+    }
+
+    useEffect(() => {
+        misModulosMatriculados(usuario)
+    }, [usuario])
+
+    return { lista, buscando }
+
 }
 export default useMisModulosMatriculados

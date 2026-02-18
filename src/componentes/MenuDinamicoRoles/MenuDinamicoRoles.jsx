@@ -9,34 +9,39 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import opcionesAdmin from '../../mocks/mock-administrador';
 import useMisModulosImpartidos from '../../hooks/useMisModulosImpartidos';
 import useMisModulosMatriculados from '../../hooks/useMisModulosMatriculados';
+import Loader from '../Loader/Loader';
 
 const MenuDinamicoRoles = ({ usuario, roles }) => {
-    
-    const { lista: listaDocente } = useMisModulosImpartidos(usuario);
-    const { lista: listaEstudiante } = useMisModulosMatriculados(usuario);
+
+    const { lista: listaDocente, buscando: buscandoDocente } = useMisModulosImpartidos(usuario);
+    const { lista: listaEstudiante, buscando: buscandoEstudiante } = useMisModulosMatriculados(usuario);
+
+    if (buscandoDocente || buscandoEstudiante) {
+        return <Loader />
+    }
 
     const roles_usuario = {
         administrador: {
             lista: opcionesAdmin.administrador,
-            url: (usuario) => usuario.ruta, 
-            id: (usuario) => usuario.id
+            url: (usuario) => usuario.ruta,
+            id: (usuario) => usuario.nombre
         },
         docente: {
             lista: listaDocente,
             url: (usuario) => `/funcionalidaddocente/${usuario.id}`,
-            id: (usuario) => usuario.ciclo_formativo_id
+            id: (usuario) => usuario.id
         },
         estudiante: {
             lista: listaEstudiante,
             url: (usuario) => `/funcionalidadestudiante/${usuario.id}`,
-            id: (usuario) => usuario.ciclo_formativo_id
+            id: (usuario) => usuario.id
         }
     };
 
     return (
         <div>
             {roles.lista.map((rol) => {
-                const config = roles_usuario[rol]; 
+                const config = roles_usuario[rol];
                 if (!config || config.lista.length === 0) return null;
 
                 return (

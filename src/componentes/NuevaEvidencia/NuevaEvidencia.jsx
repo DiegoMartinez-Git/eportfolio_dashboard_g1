@@ -13,20 +13,21 @@ const NuevaEvidencia = () => {
     })
 
 
-
     function manejarTarea(tarea) {
         setTareaSeleccionada(tarea)
     }
 
-    function manejarFormulario(evidencia) {
-        setEvidencia(evidencia)
+    function manejarFormulario(nueva_evidencia) {
+        setEvidencia(nueva_evidencia)
+        console.log("Tarea que se insertará cuando funcione el Post: ",  nueva_evidencia)
+        setTareaSeleccionada({ id: 0, observaciones: "" })
     }
 
 
     return (
 
-        <><div className="col-9 text-center verde main">
-            <SelectorTareaRA className="SelectorTareaRA" manejarTarea={manejarTarea}></SelectorTareaRA>
+        <><div className="col-9 text-center fondo-main main">
+            <SelectorTareaRA className="SelectorTareaRA" manejarTarea={manejarTarea} tareaSeleccionada={tareaSeleccionada}></SelectorTareaRA>
             <br />
             <NuevaEvidenciaForm className="NuevaEvidenciaForm" tarea={tareaSeleccionada} manejarFormulario={manejarFormulario}></NuevaEvidenciaForm>
         </div>
