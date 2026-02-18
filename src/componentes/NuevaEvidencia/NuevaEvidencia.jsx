@@ -13,27 +13,29 @@ const NuevaEvidencia = () => {
     })
 
 
+    const [errorSelector, setErrorSelector] = useState(false);
+
     function manejarTarea(tarea) {
         setTareaSeleccionada(tarea)
+        setErrorSelector(false)
     }
 
     function manejarFormulario(nueva_evidencia) {
         setEvidencia(nueva_evidencia)
-        console.log("Tarea que se insertará cuando funcione el Post: ",  nueva_evidencia)
+        console.log("Tarea que se insertará cuando funcione el Post: ", nueva_evidencia)
         setTareaSeleccionada({ id: 0, observaciones: "" })
     }
 
 
     return (
 
-        <><div className="col-9 text-center fondo-main main">
-            <SelectorTareaRA className="SelectorTareaRA" manejarTarea={manejarTarea} tareaSeleccionada={tareaSeleccionada}></SelectorTareaRA>
+        <div className="col-9 text-center fondo-main main">
+            <SelectorTareaRA className="SelectorTareaRA" manejarTarea={manejarTarea} tareaSeleccionada={tareaSeleccionada} error={errorSelector}></SelectorTareaRA>
+            {errorSelector && <p className="error" style={{ color: 'red' }}>Debes seleccionar una tarea</p>}
             <br />
-            <NuevaEvidenciaForm className="NuevaEvidenciaForm" tarea={tareaSeleccionada} manejarFormulario={manejarFormulario}></NuevaEvidenciaForm>
+            <NuevaEvidenciaForm className="NuevaEvidenciaForm" tarea={tareaSeleccionada} manejarFormulario={manejarFormulario} setErrorSelector={setErrorSelector}></NuevaEvidenciaForm>
         </div>
 
-
-        </>
     )
 
 }

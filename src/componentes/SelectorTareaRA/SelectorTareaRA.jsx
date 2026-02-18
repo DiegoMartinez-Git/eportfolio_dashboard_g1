@@ -19,7 +19,7 @@ const SelectorTareaRA = (props) => {
 
     return (
         <>
-            {buscando ? <Loader /> : <FormControl fullWidth>
+            {buscando ? <Loader /> : <FormControl fullWidth error={props.error}>
                 <InputLabel id="tarea-select-label">Tarea</InputLabel>
                 <Select
                     labelId="tarea-select-label"

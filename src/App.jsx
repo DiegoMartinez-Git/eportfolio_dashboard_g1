@@ -12,7 +12,7 @@ function App() {
   const [user, setUser] = useState(nombre)
 
 
-  const token = "selj344n3knf9s0n30f'sneno3"
+  const token = "selj344n3knf9s0n30fsneno3"
 
   return (
     <TokenContext.Provider value={token}>
@@ -21,9 +21,7 @@ function App() {
         <UserContext.Provider value={user}>
           <div className="row">
             <Roles/>
-            <div className="col-9 text-center fondo-main main">
-              <Principal/>
-            </div>
+            <Principal/>
           </div>
         </UserContext.Provider>
       </div>

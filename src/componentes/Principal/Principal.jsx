@@ -19,14 +19,14 @@ function Principal(props) {
   }
 
   return (
-    <>
+    <div className="col-9 text-center fondo-main main">
       <Routes>
         <Route path="/" element={<h1>MAIN</h1>}></Route>
         {roles.lista.includes("estudiante") && <Route path='/funcionalidadestudiante/:modulo' element={<FuncionalidadEstudiante />}></Route>}
         {roles.lista.includes("docente") && <Route path='/funcionalidaddocente/:modulo' element={<FuncionalidadDocente />}></Route>}
         {roles.lista.includes("administrador") && <Route path='/familiasprofesionales' element={<PaginaFamiliasProfesionales />}></Route>}
       </Routes>
-    </>
+    </div>
   );
 }
 

@@ -5,7 +5,7 @@ import useRoles from '../../hooks/useRoles'
 import MenuDinamicoRoles from "../MenuDinamicoRoles/MenuDinamicoRoles";
 import Loader from "../Loader/Loader";
 
-function Roles(props) {
+function Roles() {
 
   const token = useContext(TokenContext)
   const usuario = useContext(UserContext)

@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form"
 import Button from '@mui/material/Button';
 import { TextField } from "@mui/material";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import UserContext from "../../context/UserContext";
 import useEvidencias from "../../hooks/useEvidencias";
+import './NuevaEvidenciaForm.css'
 
 
 const NuevaEvidenciaForm = (props) => {
@@ -38,6 +39,12 @@ const NuevaEvidenciaForm = (props) => {
 
 
     const manejarFormulario = handleSubmit((data) => {
+
+        if (!props.tarea || !props.tarea.id) {
+            props.setErrorSelector(true);
+            return;
+        }
+
         const evidenciaFinal = {
             ...data,
             tarea_id: props.tarea.id,
@@ -53,7 +60,11 @@ const NuevaEvidenciaForm = (props) => {
         <>
             <form onSubmit={manejarFormulario}>
                 <TextField id="outlined-basic" label={TAREA.URL} variant="outlined" fullWidth {...register(TAREA.URL, {
-                    required: { value: true, message: "La URL es obligatoria" }
+                    required: { value: true, message: "La URL es obligatoria" },
+                    pattern: {
+                        value: /^(ftp|http|https):\/\/[^ "]+$/,
+                        message: "La URL no es válida"
+                    }
                 })} />
                 {errors.url && <span className="error">{errors.url.message}</span>}
                 <br /><br />

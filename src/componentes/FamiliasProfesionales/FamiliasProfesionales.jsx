@@ -1,4 +1,3 @@
-import React from 'react';
 import useFamiliasProfesionales from '../../hooks/useFamiliasProfesionales';
 import BasicTable from '../BasicTable/BasicTable';
 import Loader from '../Loader/Loader';
